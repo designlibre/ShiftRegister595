@@ -66,6 +66,8 @@ void ShiftRegister595::write(byte out)
 	//When the latch pin it toggled, the 595 will display the contents
 	//of it's storage register
 	
+
+	
 	//Turn off the latch pin
 	digitalWrite(latchPin, LOW);
 	
@@ -75,6 +77,7 @@ void ShiftRegister595::write(byte out)
 	//Turn on the latch pin which will "display" the contents of the
 	//storage register
 	digitalWrite(latchPin, HIGH);
+	
 }
 
 void ShiftRegister595::shiftOut(byte out)
@@ -83,9 +86,8 @@ void ShiftRegister595::shiftOut(byte out)
 	bool pinState = false;
 	
 
-	for (byte i=7; i>=0; i--)  
+	for (int i=7; i>=0; i--)  
 	{
-	
 		//Turn off the clock pin in preparation for 
 		//setting the next bit
 		digitalWrite(clockPin, LOW);
